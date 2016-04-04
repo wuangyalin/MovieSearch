@@ -1,0 +1,25 @@
+<ion-view view-title="IMDB电影查询">
+  <ion-content>
+   <div class="list">
+      <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Enter movie name" id="movie-title" ng-model="searchTerm">
+          </label>
+          <button class="button button-small" ng-click="getAll(searchTerm)">
+            Submit
+          </button>
+      </div>
+    </div>
+    <ion-spinner icon="rippal" ng-if="showloader == 'yes'">Searching...</ion-spinner>
+
+        <div class="list card" ng-if="searchmovie == 'yes'">
+          <h1> Results: </h1>
+            <a class="item item-thumbnail-left" ng-repeat="result in results" ng-href="#/tab/IMDB/{{result.imdbID}}">
+              <img src="{{result.Poster}}">
+              <h2>{{result.Title}}</h2>
+              <p>Year: {{result.Year}}</p>
+              <p>Type: {{result.Type}}</p>
+            </a>
+        </div>
+  </ion-content>
+</ion-view>

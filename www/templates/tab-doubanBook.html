@@ -1,0 +1,26 @@
+<ion-view view-title="豆瓣图书查询">
+  <ion-content>
+   <div class="list">
+      <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="输入图书名" id="book-title" ng-model="searchTerm">
+          </label>
+          <button class="button button-small" ng-click="getAll(searchTerm)">
+            查询
+          </button>
+      </div>
+    </div>
+    <ion-spinner icon="rippal" ng-if="showloader == 'yes'">查找中...</ion-spinner>
+
+        <div class="list card" ng-if="searchmovie == 'yes'">
+          <h1> Results: </h1>
+            <a class="item item-thumbnail-left" ng-repeat="result in results" ng-href="#/tab/doubanBook/{{result.id}}">
+              <img src="{{result.image}}">
+              <h2>{{result.title}}</h2>
+              <p>alt_title: {{result.alt_title}}</p>
+              <p>Publisher: {{result.publisher}}</p>
+            </a>
+        </div>
+
+  </ion-content>
+</ion-view>
